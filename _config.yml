@@ -1,23 +1,48 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# your informations
+author:
+  name: Bernardo Pacheco
+  description:
+  picture: /assets/images/avatar.jpg
+  favicon: /assets/images/favicon.png
 
-# Site settings
-title: Wandering Mind
-description: 'random. unoriginal. braindump.' # write a nice description for your blog
-baseurl: '' # the subpath of your site, e.g. /blog
-url: '' # the base hostname & protocol for your site http://www.example.com
-# google_analytics: 'UA-XXXXXX-X'
-twitter_username: 'rvenkatesh25'
+# site description
+description: Thoughts and writings about software engineering by Bernardo Pacheco.
 
-# Build settings
+# site url
+url: http://bernardopacheco.net
+
+# site title
+title: Bernardo Pacheco
+
+# site version
+version: 1.0.0
+
+# number of posts per page
+paginate: 10
+
+# your github username
+github_username: bernardopacheco
+
+# set true to include or false to exclude share option
+share:
+  twitter: true
+  facebook: true
+  google_plus: true
+  linkedin: true
+  disqus: true
+
+# if share.facebook is true, provide your facebook app id
+facebook_app_id: 730635297031262
+
+# if share.disqus is true, provide your disqus shortname, the api key and the number of comments to display
+disqus_username: bernardopacheco
+disqus_api_key: o2szu05bLNqiXiRvqe2oFvIHYYVR24eVkQiGs5WHcj0VUnvF8GCqD9HQUZErwCe7
+disqus_recent_comments_to_display: 5
+
+# google analytics ID
+google_analytics_id: UA-58186085-1
+
 markdown: kramdown
-
-permalink: '/:title/'
-
-gems: [jekyll-paginate]
-
-paginate: 1
+highlighter: rouge
+exclude: [ 'README.md', 'src/', 'node_modules', 'bower_components', 'package.json', 'bower.json', 'Gruntfile.js' ]
+excerpt_separator: <!--excerpt_separator-->

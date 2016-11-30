@@ -2,60 +2,66 @@
 layout: default
 ---
 
+<section id="posts">
 
-{% for post in paginator.posts %}
+  {% for post in paginator.posts %}
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="post">
 
-    <div class="main-content" itemprop="articleBody">
+        <h1 class="post-title">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h1>
+        <!-- title -->
 
-<a name="blog{{ forloop.index }}"></a>
+        <div class="post-meta">
+          <ul class="list-inline">
+            <li>
+                {{ post.date | date: "%B" }}
+                {{ post.date | date: "%d" }},
+                {{ post.date | date: "%Y" }}
+            </li>
+            <li>
+              {% if site.share.disqus %}
+              <a href="{{ site.url }}{{ post.url }}/#disqus_thread" data-disqus-identifier="{{ post.path }}"></a>
+              {% endif %}
+            </li>
+            <li>
+              <a href="//github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/blob/master/{{ post.path }}" target="_blank"><i class="fa fa-github"></i>&nbsp;Edit this post on GitHub</a>
+            </li>
+          </ul>
+        </div>
+        <!-- meta -->
 
-  <header class="post-header">
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}"><h3 class="post-title" itemprop="name headline">{{ post.title }}</h3> </a>
+        <section class="post-content">
+          {{ post.excerpt | remove: '.</p>' | append: '...</p>' }}
+        </section>
+        <!-- content -->
 
-  </header>
+        <div class="post-reading-link">
+          <a href="{{ post.url }}">Continue reading&nbsp;<i class="fa fa-angle-double-right"></i></a>
+        </div>
+        <!-- reading link -->
 
-    {{ post.content }}
+  </article>
+  <!--post-->
 
-<p class="post-meta" style="text-align: right; color: rgb(152,152,152);"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ post.author }}</span></span>{% endif %} • <label for="our-popup-{{ forloop.index }}"><i class="fa fa-share"></i> Share / Permalink</label></p>
+  {% endfor %}
 
-	<span>
-		<input type="checkbox" id="our-popup-{{ forloop.index }}" class="smoosh" />
-
-		<!-- invisible; when checked, the popup opens -->
-		<label for="our-popup-{{ forloop.index }}" class="overlay"></label>
-
-		<!-- the popup starts here -->
-		<div class="overlay-dialogue">
-			<h3>Share "{{ post.title  }}"</h3>
-
-            <!-- Target -->
-<input id="foo{{ forloop.index }}" value="{{ site.url }}{{ post.url }}" type="url">
-
-<!-- Trigger -->
-<button class="share-btn" data-clipboard-target="#foo{{ forloop.index }}">COPY LINK
-</button>
-            <p style="text-align: center;">Share on: <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ post.url }}" target="_blank">Facebook</a> • <a href="https://twitter.com/share?url={{ site.url }}{{ post.url }}&amp;text={{ post.title }}" target="_blank">Twitter</a>
-
-			<p style="text-align: center;"><label for="our-popup-{{ forloop.index }}">cancel</label></p>
-		</div>
-	</span>
-
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" role="button" class="btn btn-primary"><i class="fa fa-angle-double-left"></i>&nbsp;PREVIOUS</a>
+    {% else %}
+    <button type="button" class="btn btn-primary" disabled="disabled"><i class="fa fa-angle-double-left"></i>&nbsp;PREVIOUS</button>
+    {% endif %}
+    <!-- <span class="page_number">{{ paginator.page }} of {{ paginator.total_pages }}</span> -->
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" role="button" class="btn btn-primary">NEXT&nbsp;<i class="fa fa-angle-double-right"></i></a>
+    {% else %}
+    <button type="button" class="btn btn-primary" disabled="disabled">NEXT&nbsp;<i class="fa fa-angle-double-right"></i></button>
+    {% endif %}
   </div>
-
-</article>
-
-{% endfor %}
-
-<div class="pagination" style="text-align: center;">
-
-  {% if paginator.next_page %}
-    <h2><a href="{{ paginator.next_page_path }}" class="next">- more posts -</a></h2>
   {% endif %}
+  <!-- pagination -->
 
-  {% if paginator.previous_page %}
-    <h2><a href="{{ paginator.previous_page_path }}" class="previous">- previous page -</a></h2>
-  {% endif %}
-
-</div>
+</section>
