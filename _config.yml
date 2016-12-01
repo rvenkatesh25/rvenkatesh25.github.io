@@ -1,27 +1,27 @@
 # your informations
 author:
-  name: Bernardo Pacheco
+  name: Venkatesh Iyer 
   description:
   picture: /assets/images/avatar.jpg
   favicon: /assets/images/favicon.png
 
 # site description
-description: Thoughts and writings about software engineering by Bernardo Pacheco.
+description: Random. Completely Random. 
 
 # site url
-url: http://bernardopacheco.net
+url: http://blog.venkateshiyer.net
 
 # site title
-title: Bernardo Pacheco
+title: Venkatesh Iyer
 
 # site version
-version: 1.0.0
+version: 0.0.1
 
 # number of posts per page
 paginate: 10
 
 # your github username
-github_username: bernardopacheco
+github_username: rvenkatesh25
 
 # set true to include or false to exclude share option
 share:
@@ -32,15 +32,12 @@ share:
   disqus: true
 
 # if share.facebook is true, provide your facebook app id
-facebook_app_id: 730635297031262
+facebook_app_id: 816004111874612
 
 # if share.disqus is true, provide your disqus shortname, the api key and the number of comments to display
-disqus_username: bernardopacheco
-disqus_api_key: o2szu05bLNqiXiRvqe2oFvIHYYVR24eVkQiGs5WHcj0VUnvF8GCqD9HQUZErwCe7
+disqus_username: rvenkatesh25
+disqus_api_key: suOtQXeyi8TJPpzjsCnZDs2N5GseV0oN172L3ht9el0DRkFh4ONZozbMQ8YkpkHf 
 disqus_recent_comments_to_display: 5
-
-# google analytics ID
-google_analytics_id: UA-58186085-1
 
 markdown: kramdown
 highlighter: rouge
